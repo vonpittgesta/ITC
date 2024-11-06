@@ -10,136 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <style>
-    body, h1 {
-      font-family: "Raleway", Arial, sans-serif;
-      background-color: #0e1a2b; /* Navy Blue background */
-      color: #f1f1f1; /* Light text for readability */
-      margin: 0;
-      padding: 0;
-    }
-
-    h1 {
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      font-size: 3em;
-    }
-
-    .w3-content {
-      max-width: 1500px;
-      padding: 30px;
-      margin: 20px auto;
-    }
-
-    header {
-      background: #1a2b3c; /* Dark Navy Blue */
-      color: #8ae5a5; /* Light Green */
-      padding: 120px 16px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    }
-
-    header h1 {
-      font-size: 3.5em;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .w3-xlarge {
-      font-size: 1.2em;
-      color: #bbb;
-    }
-
-    .w3-bar {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      border-radius: 25px;
-      background-color: #2e3a59; /* Darker Navy Blue */
-    }
-
-    .w3-bar-item {
-      padding: 15px 25px;
-      margin: 0 10px;
-      text-transform: uppercase;
-      color: #fff;
-      background-color: #333;
-      border-radius: 25px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .w3-bar-item:hover {
-      background-color: #8ae5a5; /* Light Green */
-      transform: scale(1.1);
-    }
-
-    .w3-bar-item.w3-light-grey {
-      background-color: #6a11cb;
-    }
-
-    .content-section {
-      padding: 50px 20px;
-      background-color: #192a3d; /* Dark Blue */
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      margin-bottom: 60px;
-    }
-
-    .content-section h2 {
-      text-align: center;
-      font-size: 2.5em;
-      margin-bottom: 30px;
-      color: #8ae5a5; /* Light Green */
-    }
-
-    .content-section p {
-      font-size: 1.2em;
-      text-align: justify;
-      color: #ccc;
-      line-height: 1.6;
-    }
-
-    footer {
-      background-color: #1a2b3c; /* Dark Navy Blue */
-      color: #f1f1f1;
-      padding: 30px 20px;
-      text-align: center;
-      border-radius: 10px;
-    }
-
-    footer i {
-      font-size: 30px;
-      margin: 0 10px;
-      cursor: pointer;
-      transition: opacity 0.3s ease;
-    }
-
-    footer i:hover {
-      opacity: 0.7;
-    }
-
-    footer p {
-      font-size: 1.1em;
-      margin-top: 10px;
-    }
-
-    /* Assignment Content Styles */
-    .assignment-content {
-      display: none; /* Initially hidden */
-      background-color: #2b2b2b;
-      border-radius: 10px;
-      padding: 30px;
-      margin-top: 20px;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .w3-bar {
-        flex-direction: column;
-      }
-    }
+    /* Your existing CSS styles here */
   </style>
 </head>
 
@@ -153,8 +24,8 @@
 
       <div class="w3-padding-32">
         <div class="w3-bar">
-          <!-- Link to Assignment #1 hosted on GitHub Pages -->
-          <a href="https://vonpittgesta.github.io/assignment-1/assignment-1.html" class="w3-bar-item w3-button" target="_blank">Assignment #1</a>
+          <!-- Updated link to Assignment #1 hosted on GitHub Pages -->
+          <a href="https://vonpittgesta.github.io/assignment-1.html" class="w3-bar-item w3-button" target="_blank">Assignment #1</a>
           <a href="javascript:void(0)" class="w3-bar-item w3-button" onclick="showAssignment('assignment2')">Assignment #2</a>
           <a href="javascript:void(0)" class="w3-bar-item w3-button" onclick="showAssignment('assignment3')">Assignment #3</a>
           <a href="javascript:void(0)" class="w3-bar-item w3-button" onclick="showAssignment('assignment4')">Assignment #4</a>
@@ -162,38 +33,16 @@
       </div>
     </header>
 
-    <!-- Assignment 1 Content (This is not needed if you're linking to the GitHub Page) -->
+    <!-- Assignment 1 Content (Not necessary if linking to GitHub Pages) -->
     <div id="assignment1" class="assignment-content">
       <h2>Assignment #1</h2>
       <p>This is the content for Assignment #1. You can write your detailed code or explanation here.</p>
-      <pre>
-        <!-- Example of embedded code or conversion -->
-        <code>
-          // JavaScript example
-          function convertTemperature(celsius) {
-            return celsius * 9/5 + 32;
-          }
-          console.log(convertTemperature(25)); // Converts 25°C to Fahrenheit
-        </code>
-      </pre>
     </div>
 
-    <!-- Assignment 2 Content -->
+    <!-- Other Assignments (If needed) -->
     <div id="assignment2" class="assignment-content">
       <h2>Assignment #2</h2>
-      <p>This is the content for Assignment #2. Describe the second assignment here.</p>
-    </div>
-
-    <!-- Assignment 3 Content -->
-    <div id="assignment3" class="assignment-content">
-      <h2>Assignment #3</h2>
-      <p>This is the content for Assignment #3. Describe the third assignment here.</p>
-    </div>
-
-    <!-- Assignment 4 Content -->
-    <div id="assignment4" class="assignment-content">
-      <h2>Assignment #4</h2>
-      <p>This is the content for Assignment #4. Describe the fourth assignment here.</p>
+      <p>This is the content for Assignment #2.</p>
     </div>
 
     <footer>
@@ -212,5 +61,16 @@
       // Hide all assignments
       const assignments = document.querySelectorAll('.assignment-content');
       assignments.forEach(function(assignment) {
-        assignment.style.display = 'non
+        assignment.style.display = 'none';
+      });
 
+      // Show the selected assignment
+      const selectedAssignment = document.getElementById(assignmentId);
+      if (selectedAssignment) {
+        selectedAssignment.style.display = 'block';
+      }
+    }
+  </script>
+
+</body>
+</html>
