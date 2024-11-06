@@ -4,6 +4,9 @@
   <title>Conversion Calculator</title>
 </head>
 <body>
+  <!-- Back to Home link -->
+  <a href="index.html" style="text-decoration: none; font-size: 16px;">Back to Home Page</a>
+
   <h1>Conversion Calculator</h1>
 
   <h2>Celsius to Fahrenheit</h2>
@@ -31,7 +34,6 @@
   <p id="feetResult"></p>
 
   <script>
-
     function convertCelsiusToFahrenheit() {
       const celsius = parseFloat(document.getElementById("celsius").value);
       if (!isNaN(celsius)) {
