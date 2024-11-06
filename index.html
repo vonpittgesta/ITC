@@ -4,45 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>INTRODUCTION TO COMPUTING (GESTA)</title>
-
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
   <style>
-    body, h1 {
+    body {
       font-family: "Raleway", Arial, sans-serif;
-      background-color: #0e1a2b; /* Navy Blue background */
-      color: #f1f1f1; /* Light text for readability */
-      margin: 0;
-      padding: 0;
-    }
-
-    h1 {
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      font-size: 3em;
-    }
-
-    .w3-content {
-      max-width: 1500px;
-      padding: 30px;
-      margin: 20px auto;
-    }
-
-    header {
-      background: #1a2b3c; /* Dark Navy Blue */
-      color: #8ae5a5; /* Light Green */
-      padding: 120px 16px;
-      border-radius: 10px;
+      background-color: #0e1a2b;
+      color: #f1f1f1;
       text-align: center;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
 
-    header h1 {
-      font-size: 3.5em;
-      font-weight: 700;
-      margin-bottom: 10px;
+    h1, h2 {
+      color: #8ae5a5; /* Light Green */
     }
 
     .w3-bar {
@@ -50,13 +24,12 @@
       display: flex;
       justify-content: center;
       border-radius: 25px;
-      background-color: #2e3a59; /* Darker Navy Blue */
+      background-color: #2e3a59;
     }
 
     .w3-bar-item {
       padding: 15px 25px;
       margin: 0 10px;
-      text-transform: uppercase;
       color: #fff;
       background-color: #333;
       border-radius: 25px;
@@ -66,46 +39,45 @@
     }
 
     .w3-bar-item:hover {
-      background-color: #8ae5a5; /* Light Green */
+      background-color: #8ae5a5;
       transform: scale(1.1);
     }
 
-    .w3-bar-item.w3-light-grey {
+    /* Go Back Button Styles */
+    .go-back-button {
+      display: inline-block;
+      padding: 15px 25px;
       background-color: #6a11cb;
-    }
-
-    footer {
-      background-color: #1a2b3c; /* Dark Navy Blue */
-      color: #f1f1f1;
-      padding: 30px 20px;
+      color: white;
       text-align: center;
-      border-radius: 10px;
+      border-radius: 25px;
+      font-size: 1.2em;
+      cursor: pointer;
+      text-decoration: none;
+      margin-top: 30px;
+      transition: background-color 0.3s ease;
     }
 
-    footer p {
-      font-size: 1.1em;
-      margin-top: 10px;
+    .go-back-button:hover {
+      background-color: #8ae5a5;
     }
   </style>
 </head>
-
 <body>
 
-  <div class="w3-content">
-    <header>
-      <h1>Introduction to Computing</h1>
-      <h1>Von Pitt B. Gesta</h1>
+  <header>
+    <h1>Introduction to Computing</h1>
+    <h2>Von Pitt B. Gesta</h2>
+    <div class="w3-bar">
+      <a href="assignment1.html" class="w3-bar-item w3-button">Assignment #1</a>
+      <a href="assignment2.html" class="w3-bar-item w3-button">Assignment #2</a>
+      <a href="assignment3.html" class="w3-bar-item w3-button">Assignment #3</a>
+      <a href="assignment4.html" class="w3-bar-item w3-button">Assignment #4</a>
+    </div>
+  </header>
 
-      <div class="w3-padding-32">
-        <div class="w3-bar">
-          <a href="assignment1.html" class="w3-bar-item w3-button">Assignment #1</a>
-          <a href="assignment2.html" class="w3-bar-item w3-button">Assignment #2</a>
-          <a href="assignment3.html" class="w3-bar-item w3-button">Assignment #3</a>
-          <a href="assignment4.html" class="w3-bar-item w3-button">Assignment #4</a>
-        </div>
-      </div>
-    </header>
-  </div>
+  <!-- Back to Home Button -->
+  <a href="index.html" class="go-back-button">Back to Home Page</a>
 
 </body>
 </html>
