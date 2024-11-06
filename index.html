@@ -134,6 +134,25 @@
       margin-top: 20px;
     }
 
+    /* Go Back Button Style */
+    .go-back-button {
+      display: inline-block;
+      padding: 15px 25px;
+      margin-top: 20px;
+      background-color: #6a11cb;
+      color: white;
+      text-align: center;
+      border-radius: 25px;
+      font-size: 1.2em;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .go-back-button:hover {
+      background-color: #8ae5a5;
+    }
+
     /* Responsive Design */
     @media (max-width: 768px) {
       .w3-bar {
@@ -176,24 +195,28 @@
           console.log(convertTemperature(25)); // Converts 25°C to Fahrenheit
         </code>
       </pre>
+      <a href="https://vonpittgesta.github.io/assignment1/" class="go-back-button">Go Back to Home Page</a>
     </div>
 
     <!-- Assignment 2 Content -->
     <div id="assignment2" class="assignment-content">
       <h2>Assignment #2</h2>
       <p>This is the content for Assignment #2. Describe the second assignment here.</p>
+      <a href="https://vonpittgesta.github.io/assignment1/" class="go-back-button">Go Back to Home Page</a>
     </div>
 
     <!-- Assignment 3 Content -->
     <div id="assignment3" class="assignment-content">
       <h2>Assignment #3</h2>
       <p>This is the content for Assignment #3. Describe the third assignment here.</p>
+      <a href="https://vonpittgesta.github.io/assignment1/" class="go-back-button">Go Back to Home Page</a>
     </div>
 
     <!-- Assignment 4 Content -->
     <div id="assignment4" class="assignment-content">
       <h2>Assignment #4</h2>
       <p>This is the content for Assignment #4. Describe the fourth assignment here.</p>
+      <a href="https://vonpittgesta.github.io/assignment1/" class="go-back-button">Go Back to Home Page</a>
     </div>
 
     <footer>
@@ -218,10 +241,4 @@
       // Show the selected assignment
       const selectedAssignment = document.getElementById(assignmentId);
       if (selectedAssignment) {
-        selectedAssignment.style.display = 'block';
-      }
-    }
-  </script>
-
-</body>
-</html>
+        selectedAssignment.style.display =
