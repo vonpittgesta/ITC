@@ -1,82 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Conversion Calculator</title>
+  <title>Income Tax Calculator</title>
 </head>
 <body>
-  <h1>Conversion Calculator</h1>
+  <h1>Income Tax Calculator</h1>
 
-  <!-- Celsius to Fahrenheit -->
-  <h2>Celsius to Fahrenheit</h2>
-  <label for="celsius">Enter temperature in Celsius: </label>
-  <input type="number" id="celsius" placeholder="Celsius">
-  <button onclick="convertCelsiusToFahrenheit()">Convert</button>
-  <p id="celsiusResult"></p>
+  <label for="income">Enter your taxable income (in PHP): </label>
+  <input type="number" id="income" placeholder="Enter taxable income">
+  <button onclick="calculateTax()">Calculate Tax</button>
 
-  <!-- Fahrenheit to Celsius -->
-  <h2>Fahrenheit to Celsius</h2>
-  <label for="fahrenheit">Enter temperature in Fahrenheit: </label>
-  <input type="number" id="fahrenheit" placeholder="Fahrenheit">
-  <button onclick="convertFahrenheitToCelsius()">Convert</button>
-  <p id="fahrenheitResult"></p>
-
-  <!-- Meters to Feet -->
-  <h2>Meters to Feet</h2>
-  <label for="meters">Enter distance in meters: </label>
-  <input type="number" id="meters" placeholder="Meters">
-  <button onclick="convertMetersToFeet()">Convert</button>
-  <p id="metersResult"></p>
-
-  <!-- Feet to Meters -->
-  <h2>Feet to Meters</h2>
-  <label for="feet">Enter distance in feet: </label>
-  <input type="number" id="feet" placeholder="Feet">
-  <button onclick="convertFeetToMeters()">Convert</button>
-  <p id="feetResult"></p>
+  <h2>Tax Result</h2>
+  <p id="result"></p>
 
   <script>
-    // Celsius to Fahrenheit
-    function convertCelsiusToFahrenheit() {
-      var celsius = parseFloat(document.getElementById("celsius").value);
-      if (!isNaN(celsius)) {
-        var fahrenheit = (celsius * 9/5) + 32;
-        document.getElementById("celsiusResult").textContent = celsius + "°C is equal to " + fahrenheit.toFixed(2) + "°F";
-      } else {
-        alert("Please enter a valid number.");
+    function calculateTax() {
+      const taxableIncome = parseFloat(document.getElementById('income').value);
+     
+      if (isNaN(taxableIncome) || taxableIncome < 0) {
+        alert("Please enter a valid number greater than or equal to zero.");
+        return; 
       }
-    }
 
-    // Fahrenheit to Celsius
-    function convertFahrenheitToCelsius() {
-      var fahrenheit = parseFloat(document.getElementById("fahrenheit").value);
-      if (!isNaN(fahrenheit)) {
-        var celsius = (fahrenheit - 32) * 5/9;
-        document.getElementById("fahrenheitResult").textContent = fahrenheit + "°F is equal to " + celsius.toFixed(2) + "°C";
-      } else {
-        alert("Please enter a valid number.");
-      }
-    }
+      let tax = 0;
+      let taxBracket = "";
 
-    // Meters to Feet
-    function convertMetersToFeet() {
-      var meters = parseFloat(document.getElementById("meters").value);
-      if (!isNaN(meters)) {
-        var feet = meters * 3.28084;
-        document.getElementById("metersResult").textContent = meters + " meters is equal to " + feet.toFixed(2) + " feet";
-      } else {
-        alert("Please enter a valid number.");
-      }
-    }
+      if (taxableIncome <= 250000) {
+        tax = 0;
+        taxBracket = "No tax for income up to P250,000.";
+      } 
+  
+      else if (taxableIncome <= 400000) {
+        tax = (taxableIncome - 250000) * 0.20;
+        taxBracket = "20% tax on the excess over P250,000.";
+      } 
 
-    // Feet to Meters
-    function convertFeetToMeters() {
-      var feet = parseFloat(document.getElementById("feet").value);
-      if (!isNaN(feet)) {
-        var meters = feet / 3.28084;
-        document.getElementById("feetResult").textContent = feet + " feet is equal to " + meters.toFixed(2) + " meters";
-      } else {
-        alert("Please enter a valid number.");
+      else if (taxableIncome <= 800000) {
+        tax = 30000 + (taxableIncome - 400000) * 0.25;
+        taxBracket = "P30,000 + 25% tax on the excess over P400,000.";
+      } 
+
+      else if (taxableIncome <= 2000000) {
+        tax = 130000 + (taxableIncome - 800000) * 0.30;
+        taxBracket = "P130,000 + 30% tax on the excess over P800,000.";
+      } 
+ 
+      else if (taxableIncome <= 8000000) {
+        tax = 490000 + (taxableIncome - 2000000) * 0.32;
+        taxBracket = "P490,000 + 32% tax on the excess over P2,000,000.";
+      } 
+      else {
+        tax = 2410000 + (taxableIncome - 8000000) * 0.35;
+        taxBracket = "P2,410,000 + 35% tax on the excess over P8,000,000.";
       }
+
+      document.getElementById('result').textContent = 
+        "For a taxable income of " + taxableIncome.toFixed(2) + " PHP, the income tax is " + tax.toFixed(2) + " PHP. " + taxBracket;
     }
-  </sc
+  </script>
+</body>
+</html>
 
