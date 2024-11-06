@@ -5,18 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Introduction to Computing</title>
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway|Poppins|Dancing+Script">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     body {
-      font-family: "Raleway", Arial, sans-serif;
-      background-color: #ffebf1; /* Light Pink background */
-      color: #3c3c3c; /* Dark Gray text for readability */
+      font-family: "Poppins", Arial, sans-serif;
+      background-color: #ffe6f2; /* Soft pastel pink background */
+      color: #4d4d4d; /* Soft gray text for readability */
       text-align: center;
     }
 
     h1, h2 {
       color: #ff66b2; /* Soft Pink for headings */
+      font-family: 'Dancing Script', cursive;
+    }
+
+    h3 {
+      color: #ff80cc; /* Lighter pink for the sub-heading */
+      font-size: 18px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: lighter;
     }
 
     .w3-bar {
@@ -36,6 +44,7 @@
       font-weight: bold;
       cursor: pointer;
       transition: background-color 0.3s ease, transform 0.3s ease;
+      font-family: 'Poppins', sans-serif;
     }
 
     .w3-bar-item:hover {
@@ -50,13 +59,14 @@
     .back-home-btn {
       display: inline-block;
       margin-top: 30px;
-      padding: 10px 20px;
+      padding: 12px 30px;
       background-color: #ff66b2;
       color: white;
       font-size: 16px;
       font-weight: bold;
       text-decoration: none;
-      border-radius: 25px;
+      border-radius: 30px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
       transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
@@ -68,9 +78,71 @@
     .back-home-btn:active {
       background-color: #ff66b2;
     }
+
+    /* Ribbon style */
+    .ribbon {
+      position: relative;
+      width: 100%;
+      background-color: #ff66b2;
+      color: white;
+      padding: 20px;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .ribbon:after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid #ff66b2;
+    }
+
+    /* Cute Icons and Boxes */
+    .icon-box {
+      display: inline-block;
+      padding: 20px;
+      margin: 20px;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      text-align: center;
+      width: 150px;
+    }
+
+    .icon-box:hover {
+      transform: scale(1.1);
+    }
+
+    .icon-box i {
+      font-size: 48px;
+      color: #ff66b2;
+      margin-bottom: 10px;
+    }
+
+    .icon-box p {
+      font-family: 'Poppins', sans-serif;
+      color: #ff66b2;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Pink Ribbon -->
+  <div class="ribbon">
+    Welcome to the Introduction to Computing
+  </div>
 
   <header>
     <h1>Introduction to Computing</h1>
@@ -81,6 +153,24 @@
       <a href="assignment2.html" class="w3-bar-item w3-button">Assignment #2</a>
       <a href="assignment3.html" class="w3-bar-item w3-button">Assignment #3</a>
       <a href="assignment4.html" class="w3-bar-item w3-button">Assignment #4</a>
+    </div>
+  </header>
+
+  <!-- Cute Icon Boxes -->
+  <div>
+    <div class="icon-box">
+      <i class="fa fa-laptop"></i>
+      <p>Learn Computing</p>
+    </div>
+    <div class="icon-box">
+      <i class="fa fa-book"></i>
+      <p>Assignments</p>
+    </div>
+    <div class="icon-box">
+      <i class="fa fa-heart"></i>
+      <p>Love Coding</p>
+    </div>
+
 </body>
 </html>
 
