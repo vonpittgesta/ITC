@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Conversion Calculator</title>
+</head>
+<body>
+  <h1>Conversion Calculator</h1>
+
+  <!-- Celsius to Fahrenheit -->
+  <h2>Celsius to Fahrenheit</h2>
+  <label for="celsius">Enter temperature in Celsius: </label>
+  <input type="number" id="celsius" placeholder="Celsius">
+  <button onclick="convertCelsiusToFahrenheit()">Convert</button>
+  <p id="celsiusResult"></p>
+
+  <!-- Fahrenheit to Celsius -->
+  <h2>Fahrenheit to Celsius</h2>
+  <label for="fahrenheit">Enter temperature in Fahrenheit: </label>
+  <input type="number" id="fahrenheit" placeholder="Fahrenheit">
+  <button onclick="convertFahrenheitToCelsius()">Convert</button>
+  <p id="fahrenheitResult"></p>
+
+  <!-- Meters to Feet -->
+  <h2>Meters to Feet</h2>
+  <label for="meters">Enter distance in meters: </label>
+  <input type="number" id="meters" placeholder="Meters">
+  <button onclick="convertMetersToFeet()">Convert</button>
+  <p id="metersResult"></p>
+
+  <!-- Feet to Meters -->
+  <h2>Feet to Meters</h2>
+  <label for="feet">Enter distance in feet: </label>
+  <input type="number" id="feet" placeholder="Feet">
+  <button onclick="convertFeetToMeters()">Convert</button>
+  <p id="feetResult"></p>
+
+  <script>
+    // Celsius to Fahrenheit
+    function convertCelsiusToFahrenheit() {
+      var celsius = parseFloat(document.getElementById("celsius").value);
+      if (!isNaN(celsius)) {
+        var fahrenheit = (celsius * 9/5) + 32;
+        document.getElementById("celsiusResult").textContent = celsius + "°C is equal to " + fahrenheit.toFixed(2) + "°F";
+      } else {
+        alert("Please enter a valid number.");
+      }
+    }
+
+    // Fahrenheit to Celsius
+    function convertFahrenheitToCelsius() {
+      var fahrenheit = parseFloat(document.getElementById("fahrenheit").value);
+      if (!isNaN(fahrenheit)) {
+        var celsius = (fahrenheit - 32) * 5/9;
+        document.getElementById("fahrenheitResult").textContent = fahrenheit + "°F is equal to " + celsius.toFixed(2) + "°C";
+      } else {
+        alert("Please enter a valid number.");
+      }
+    }
+
+    // Meters to Feet
+    function convertMetersToFeet() {
+      var meters = parseFloat(document.getElementById("meters").value);
+      if (!isNaN(meters)) {
+        var feet = meters * 3.28084;
+        document.getElementById("metersResult").textContent = meters + " meters is equal to " + feet.toFixed(2) + " feet";
+      } else {
+        alert("Please enter a valid number.");
+      }
+    }
+
+    // Feet to Meters
+    function convertFeetToMeters() {
+      var feet = parseFloat(document.getElementById("feet").value);
+      if (!isNaN(feet)) {
+        var meters = feet / 3.28084;
+        document.getElementById("feetResult").textContent = feet + " feet is equal to " + meters.toFixed(2) + " meters";
+      } else {
+        alert("Please enter a valid number.");
+      }
+    }
+  </sc
 
