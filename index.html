@@ -13,6 +13,7 @@
       background-color: #ffe6f2; /* Soft pastel pink background */
       color: #4d4d4d; /* Soft gray text for readability */
       text-align: center;
+      overflow-x: hidden; /* Prevent horizontal scroll */
     }
 
     h1, h2 {
@@ -27,35 +28,64 @@
       font-weight: lighter;
     }
 
-    .w3-bar {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      border-radius: 25px;
-      background-color: #ff66b2; /* Soft Pink */
-    }
-
-    .w3-bar-item {
-      padding: 15px 25px;
-      margin: 0 10px;
-      color: #fff;
-      background-color: #333;
-      border-radius: 25px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    .w3-bar-item:hover {
-      background-color: #ff80cc; /* Lighter Pink on hover */
-      transform: scale(1.1);
-    }
-
-    .w3-bar-item:active {
+    /* Multiple Ribbon Styles */
+    .ribbon {
+      position: relative;
+      width: 100%;
       background-color: #ff66b2;
+      color: white;
+      padding: 20px;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 10px;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
     }
 
+    .ribbon:after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid #ff66b2;
+    }
+
+    /* Heart Shape Background */
+    .heart {
+      color: #ff66b2;
+      font-size: 36px;
+      animation: bounce 1s infinite alternate;
+    }
+
+    /* Heart Animation */
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-10px); }
+    }
+
+    /* Cute Teddy Bear Styles */
+    .teddy-bear {
+      width: 80px;
+      height: 80px;
+      margin: 10px;
+      background: url('https://www.clipartkey.com/mpngs/m/27-272505_animated-cute-teddy-bear-png-transparent-background.png') no-repeat center center;
+      background-size: contain;
+      display: inline-block;
+      animation: teddy-bounce 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes teddy-bounce {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-10px); }
+    }
+
+    /* Button Style */
     .back-home-btn {
       display: inline-block;
       margin-top: 30px;
@@ -79,98 +109,72 @@
       background-color: #ff66b2;
     }
 
-    /* Ribbon style */
-    .ribbon {
-      position: relative;
-      width: 100%;
-      background-color: #ff66b2;
-      color: white;
-      padding: 20px;
-      font-size: 22px;
-      font-weight: bold;
-      text-align: center;
-      margin-bottom: 20px;
-      border-radius: 0 0 20px 20px;
-      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    /* Add Heart Shapes to the Page */
+    .heart-container {
+      margin: 30px 0;
     }
 
-    .ribbon:after {
-      content: "";
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 0;
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;
-      border-top: 10px solid #ff66b2;
-    }
-
-    /* Cute Icons and Boxes */
-    .icon-box {
-      display: inline-block;
-      padding: 20px;
-      margin: 20px;
-      background-color: #fff;
-      border-radius: 20px;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-      text-align: center;
-      width: 150px;
-    }
-
-    .icon-box:hover {
-      transform: scale(1.1);
-    }
-
-    .icon-box i {
-      font-size: 48px;
+    .heart-icon {
+      font-size: 40px;
       color: #ff66b2;
+      margin: 10px;
+      display: inline-block;
+      animation: heartAnimation 1s infinite alternate;
+    }
+
+    @keyframes heartAnimation {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.2); }
+    }
+
+    /* Multiple Ribbon Banners */
+    .ribbon-banner {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .ribbon-banner .ribbon {
       margin-bottom: 10px;
     }
 
-    .icon-box p {
-      font-family: 'Poppins', sans-serif;
-      color: #ff66b2;
-      font-weight: bold;
-    }
   </style>
 </head>
 <body>
 
-  <!-- Pink Ribbon -->
-  <div class="ribbon">
-    Welcome to the Introduction to Computing
+  <!-- Multiple Ribbons at the Top -->
+  <div class="ribbon-banner">
+    <div class="ribbon">Welcome to the Introduction to Computing!</div>
+    <div class="ribbon">Let's Learn and Have Fun with Computing</div>
   </div>
 
   <header>
     <h1>Introduction to Computing</h1>
     <h2>Von Pitt B. Gesta</h2>
     <h3>Pinaka pogi na tao sa world</h3>
+
+    <!-- Hearts and Teddy Bears -->
+    <div class="heart-container">
+      <span class="heart-icon">&#10084;</span>
+      <span class="heart-icon">&#10084;</span>
+      <span class="heart-icon">&#10084;</span>
+    </div>
+
+    <div>
+      <div class="teddy-bear"></div>
+      <div class="teddy-bear"></div>
+      <div class="teddy-bear"></div>
+    </div>
+
     <div class="w3-bar">
       <a href="assignment1.html" class="w3-bar-item w3-button">Assignment #1</a>
       <a href="assignment2.html" class="w3-bar-item w3-button">Assignment #2</a>
       <a href="assignment3.html" class="w3-bar-item w3-button">Assignment #3</a>
       <a href="assignment4.html" class="w3-bar-item w3-button">Assignment #4</a>
     </div>
-  </header>
-
-  <!-- Cute Icon Boxes -->
-  <div>
-    <div class="icon-box">
-      <i class="fa fa-laptop"></i>
-      <p>Learn Computing</p>
-    </div>
-    <div class="icon-box">
-      <i class="fa fa-book"></i>
-      <p>Assignments</p>
-    </div>
-    <div class="icon-box">
-      <i class="fa fa-heart"></i>
-      <p>Love Coding</p>
-    </div>
 
 </body>
 </html>
-
