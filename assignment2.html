@@ -1,20 +1,128 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Income Tax Calculator</title>
+  <style>
+    /* General reset and body styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Arial", sans-serif;
+      background-color: #f8f9fa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 36px;
+    }
+
+    h2 {
+      color: #444;
+      margin: 20px 0 10px 0;
+      font-size: 24px;
+    }
+
+    .container {
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-size: 18px;
+      color: #555;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #6b6ef9;
+      color: #fff;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #5a5cd4;
+    }
+
+    p {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      font-size: 16px;
+      color: #6b6ef9;
+      margin-bottom: 20px;
+      display: inline-block;
+      font-weight: bold;
+    }
+
+    a:hover {
+      color: #5a5cd4;
+    }
+  </style>
 </head>
 <body>
-    <!-- Back to Home link -->
-  <a href="index.html" style="text-decoration: none; font-size: 16px;">Back to Home Page</a>
-  
-  <h1>Income Tax Calculator</h1>
 
-  <label for="income">Enter your taxable income (in PHP): </label>
-  <input type="number" id="income" placeholder="Enter taxable income">
-  <button onclick="calculateTax()">Calculate Tax</button>
+  <!-- Back to Home link -->
+  <a href="index.html">Back to Home Page</a>
 
-  <h2>Tax Result</h2>
-  <p id="result"></p>
+  <div class="container">
+    <h1>Income Tax Calculator</h1>
+
+    <!-- Taxable Income Input -->
+    <div class="form-group">
+      <label for="income">Enter your taxable income (in PHP): </label>
+      <input type="number" id="income" placeholder="Enter taxable income" min="0">
+    </div>
+
+    <!-- Calculate Tax Button -->
+    <button onclick="calculateTax()">Calculate Tax</button>
+
+    <!-- Tax Result Section -->
+    <h2>Tax Result</h2>
+    <p id="result"></p>
+  </div>
 
   <script>
     function calculateTax() {
@@ -32,22 +140,18 @@
         tax = 0;
         taxBracket = "No tax for income up to P250,000.";
       } 
-  
       else if (taxableIncome <= 400000) {
         tax = (taxableIncome - 250000) * 0.20;
         taxBracket = "20% tax on the excess over P250,000.";
       } 
-
       else if (taxableIncome <= 800000) {
         tax = 30000 + (taxableIncome - 400000) * 0.25;
         taxBracket = "P30,000 + 25% tax on the excess over P400,000.";
       } 
-
       else if (taxableIncome <= 2000000) {
         tax = 130000 + (taxableIncome - 800000) * 0.30;
         taxBracket = "P130,000 + 30% tax on the excess over P800,000.";
       } 
- 
       else if (taxableIncome <= 8000000) {
         tax = 490000 + (taxableIncome - 2000000) * 0.32;
         taxBracket = "P490,000 + 32% tax on the excess over P2,000,000.";
@@ -61,6 +165,7 @@
         "For a taxable income of " + taxableIncome.toFixed(2) + " PHP, the income tax is " + tax.toFixed(2) + " PHP. " + taxBracket;
     }
   </script>
+
 </body>
 </html>
 
