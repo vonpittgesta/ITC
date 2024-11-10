@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Payroll Management System</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Poppins|Fira+Code">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     /* General reset and body styling */
     * {
@@ -13,21 +15,19 @@
     }
 
     body {
-      font-family: "Arial", sans-serif;
-      background-color: #f4f4f9;
+      font-family: "Poppins", Arial, sans-serif;
+      background-color: #f5f9fc;
       color: #333;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      min-height: 100vh;
+      text-align: center;
       padding: 20px;
     }
 
     h1 {
       color: #3c3c3c;
       margin-bottom: 20px;
-      text-align: center;
       font-size: 36px;
     }
 
@@ -35,18 +35,20 @@
       color: #444;
       margin-top: 20px;
       font-size: 28px;
-      text-align: center;
     }
 
+    /* Container for the form and payroll list */
     .container {
       background-color: #ffffff;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       padding: 30px;
       width: 100%;
-      max-width: 700px;
+      max-width: 800px;
+      margin-top: 30px;
     }
 
+    /* Form Group */
     .form-group {
       margin-bottom: 20px;
     }
@@ -68,10 +70,11 @@
       box-sizing: border-box;
     }
 
+    /* Buttons */
     button {
       width: 48%;
       padding: 14px;
-      background-color: #4caf50;
+      background-color: #6b6ef9;
       color: #fff;
       font-size: 18px;
       border: none;
@@ -83,7 +86,7 @@
     }
 
     button:hover {
-      background-color: #45a049;
+      background-color: #3a3ae2;
     }
 
     .delete-button {
@@ -94,6 +97,7 @@
       background-color: #e53935;
     }
 
+    /* Table */
     table {
       width: 100%;
       margin-top: 20px;
@@ -108,7 +112,7 @@
     }
 
     th {
-      background-color: #4caf50;
+      background-color: #6b6ef9;
       color: white;
     }
 
@@ -125,10 +129,11 @@
       background-color: #e53935;
     }
 
+    /* Back link */
     a {
       text-decoration: none;
       font-size: 16px;
-      color: #4caf50;
+      color: #6b6ef9;
       margin-bottom: 20px;
       display: inline-block;
       font-weight: bold;
@@ -136,9 +141,10 @@
     }
 
     a:hover {
-      color: #45a049;
+      color: #3a3ae2;
     }
 
+    /* Action buttons layout */
     .action-buttons {
       display: flex;
       justify-content: space-between;
@@ -281,4 +287,5 @@
 
 </body>
 </html>
+
 
