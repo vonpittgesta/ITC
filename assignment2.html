@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Income Tax Calculator</title>
   <style>
-    /* General reset and body styling */
-    * {
+    {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -104,22 +103,18 @@
 </head>
 <body>
 
-  <!-- Back to Home link -->
   <a href="index.html">Back to Home Page</a>
 
   <div class="container">
     <h1>Income Tax Calculator</h1>
 
-    <!-- Taxable Income Input -->
     <div class="form-group">
       <label for="income">Enter your taxable income (in PHP): </label>
       <input type="number" id="income" placeholder="Enter taxable income" min="0">
     </div>
 
-    <!-- Calculate Tax Button -->
     <button onclick="calculateTax()">Calculate Tax</button>
 
-    <!-- Tax Result Section -->
     <h2>Tax Result</h2>
     <p id="result"></p>
   </div>
