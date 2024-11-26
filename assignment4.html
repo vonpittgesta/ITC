@@ -1,105 +1,297 @@
-<script>
-  let payrollList = [];
-
-  function addEmployee() {
-    const employeeName = document.getElementById("employeeName").value;
-    const daysWorked = parseInt(document.getElementById("daysWorked").value);
-    const dailyRate = parseFloat(document.getElementById("dailyRate").value);
-    const deductionAmount = parseFloat(document.getElementById("deductionAmount").value);
-
-    if (employeeName === "" || isNaN(daysWorked) || isNaN(dailyRate) || isNaN(deductionAmount)) {
-      alert("Please fill in all fields with valid data.");
-      return;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payroll Management System</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Poppins|Fira+Code">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    const grossPay = daysWorked * dailyRate;
-    const netPay = grossPay - deductionAmount;
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background-color: #f5f9fc;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
 
-    const employee = {
-      employeeName: employeeName,
-      daysWorked: daysWorked,
-      dailyRate: dailyRate,
-      grossPay: grossPay,
-      deductionAmount: deductionAmount,
-      netPay: netPay
-    };
+    h1 {
+      color: #3c3c3c;
+      margin-bottom: 20px;
+      font-size: 36px;
+    }
 
-    payrollList.push(employee);
-    updatePayrollTable();
+    h2 {
+      color: #444;
+      margin-top: 20px;
+      font-size: 28px;
+    }
 
-    document.getElementById("employeeName").value = "";
-    document.getElementById("daysWorked").value = "";
-    document.getElementById("dailyRate").value = "";
-    document.getElementById("deductionAmount").value = "";
-  }
+    .container {
+      background-color: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      width: 100%;
+      max-width: 800px;
+      margin-top: 30px;
+    }
 
-  function updatePayrollTable() {
-    const tableBody = document.getElementById("payrollTable").getElementsByTagName('tbody')[0];
-    tableBody.innerHTML = "";
+    .form-group {
+      margin-bottom: 20px;
+    }
 
-    for (let i = 0; i < payrollList.length; i++) {
-      const employee = payrollList[i];
-      const row = tableBody.insertRow();
+    label {
+      font-size: 18px;
+      color: #555;
+      display: block;
+      margin-bottom: 5px;
+    }
 
-      row.insertCell(0).textContent = i + 1;
-      row.insertCell(1).textContent = employee.employeeName;
-      row.insertCell(2).textContent = employee.daysWorked;
-      row.insertCell(3).textContent = employee.dailyRate.toFixed(2);
-      row.insertCell(4).textContent = employee.grossPay.toFixed(2);
-      row.insertCell(5).textContent = employee.deductionAmount.toFixed(2);
-      row.insertCell(6).textContent = employee.netPay.toFixed(2);
+    input[type="text"], input[type="number"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
 
-      const deleteCell = row.insertCell(7);
-      const deleteButton = document.createElement("button");
-      deleteButton.textContent = "Delete";
-      deleteButton.onclick = function() {
-        const confirmation1 = confirm("Are you sure you want to delete this employee?");
-        if (confirmation1) {
-          // Second confirmation: Are you really sure?
-          const confirmation2 = confirm("Are you really sure?");
-          if (confirmation2) {
-            deleteEmployeeByIndex(i);
-          }
-        }
+    button {
+      width: 48%;
+      padding: 14px;
+      background-color: #6b6ef9;
+      color: #fff;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-right: 4%;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #3a3ae2;
+    }
+
+    .delete-button {
+      background-color: #f44336;
+    }
+
+    .delete-button:hover {
+      background-color: #e53935;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #6b6ef9;
+      color: white;
+    }
+
+    td button {
+      padding: 5px 10px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    td button:hover {
+      background-color: #e53935;
+    }
+
+    a {
+      text-decoration: none;
+      font-size: 16px;
+      color: #6b6ef9;
+      margin-bottom: 20px;
+      display: inline-block;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    a:hover {
+      color: #3a3ae2;
+    }
+
+    .action-buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+
+  </style>
+</head>
+<body>
+
+  <a href="index.html">Back to Home Page</a>
+
+  <div class="container">
+    <h1>Payroll Management System</h1>
+
+    <h2>Add Employee to Payroll</h2>
+
+    <div class="form-group">
+      <label for="employeeName">Employee Name:</label>
+      <input type="text" id="employeeName" placeholder="Enter employee name">
+    </div>
+
+    <div class="form-group">
+      <label for="daysWorked">Days Worked:</label>
+      <input type="number" id="daysWorked" placeholder="Enter days worked">
+    </div>
+
+    <div class="form-group">
+      <label for="dailyRate">Daily Rate (PHP):</label>
+      <input type="number" id="dailyRate" placeholder="Enter daily rate">
+    </div>
+
+    <div class="form-group">
+      <label for="deductionAmount">Deduction Amount (PHP):</label>
+      <input type="number" id="deductionAmount" placeholder="Enter deduction amount">
+    </div>
+
+    <div class="action-buttons">
+      <button onclick="addEmployee()">Add Employee</button>
+      <button class="delete-button" onclick="clearAllEmployees()">Clear All Employees</button>
+    </div>
+
+    <h2>Payroll List</h2>
+    <table id="payrollTable">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Employee Name</th>
+          <th>Days Worked</th>
+          <th>Daily Rate</th>
+          <th>Gross Pay</th>
+          <th>Deduction Amount</th>
+          <th>Net Pay</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script>
+    let payrollList = [];
+
+    function addEmployee() {
+      const employeeName = document.getElementById("employeeName").value;
+      const daysWorked = parseInt(document.getElementById("daysWorked").value);
+      const dailyRate = parseFloat(document.getElementById("dailyRate").value);
+      const deductionAmount = parseFloat(document.getElementById("deductionAmount").value);
+
+      if (employeeName === "" || isNaN(daysWorked) || isNaN(dailyRate) || isNaN(deductionAmount)) {
+        alert("Please fill in all fields with valid data.");
+        return;
+      }
+
+      const grossPay = daysWorked * dailyRate;
+      const netPay = grossPay - deductionAmount;
+
+      const employee = {
+        employeeName: employeeName,
+        daysWorked: daysWorked,
+        dailyRate: dailyRate,
+        grossPay: grossPay,
+        deductionAmount: deductionAmount,
+        netPay: netPay
       };
-      deleteCell.appendChild(deleteButton);
-    }
-  }
 
-  function deleteEmployee() {
-    const lineNumber = parseInt(prompt("Enter the Line Number to delete:"));
+      payrollList.push(employee);
+      updatePayrollTable();
 
-    if (isNaN(lineNumber) || lineNumber < 1 || lineNumber > payrollList.length) {
-      alert("Invalid line number.");
-      return;
+      document.getElementById("employeeName").value = "";
+      document.getElementById("daysWorked").value = "";
+      document.getElementById("dailyRate").value = "";
+      document.getElementById("deductionAmount").value = "";
     }
 
-    const confirmation1 = confirm("Are you sure you want to delete this employee?");
-    if (confirmation1) {
-      const confirmation2 = confirm("Are you really sure?");
-      if (confirmation2) {
-        const indexToDelete = lineNumber - 1;
-        payrollList.splice(indexToDelete, 1);
-        updatePayrollTable();
+    function updatePayrollTable() {
+      const tableBody = document.getElementById("payrollTable").getElementsByTagName('tbody')[0];
+      tableBody.innerHTML = "";
+
+      for (let i = 0; i < payrollList.length; i++) {
+        const employee = payrollList[i];
+        const row = tableBody.insertRow();
+
+        row.insertCell(0).textContent = i + 1;
+        row.insertCell(1).textContent = employee.employeeName;
+        row.insertCell(2).textContent = employee.daysWorked;
+        row.insertCell(3).textContent = employee.dailyRate.toFixed(2);
+        row.insertCell(4).textContent = employee.grossPay.toFixed(2);
+        row.insertCell(5).textContent = employee.deductionAmount.toFixed(2);
+        row.insertCell(6).textContent = employee.netPay.toFixed(2);
+
+        const deleteCell = row.insertCell(7);
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.onclick = function() {
+          const confirmation1 = confirm("Are you sure you want to delete this employee?");
+          if (confirmation1) {
+            const confirmation2 = confirm("Are you really sure?");
+            if (confirmation2) {
+              deleteEmployeeByIndex(i);
+            }
+          }
+        };
+        deleteCell.appendChild(deleteButton);
       }
     }
-  }
 
-  function deleteEmployeeByIndex(index) {
-    payrollList.splice(index, 1);
-    updatePayrollTable();
-  }
+    function deleteEmployee() {
+      const lineNumber = parseInt(prompt("Enter the Line Number to delete:"));
 
-  function clearAllEmployees() {
-    const confirmation1 = confirm("Are you sure you want to clear all employees?");
-    if (confirmation1) {
-      const confirmation2 = confirm("Are you really sure?");
-      if (confirmation2) {
-        payrollList = []; 
-        updatePayrollTable(); 
+      if (isNaN(lineNumber) || lineNumber < 1 || lineNumber > payrollList.length) {
+        alert("Invalid line number.");
+        return;
+      }
+
+      const confirmation1 = confirm("Are you sure you want to delete this employee?");
+      if (confirmation1) {
+        const confirmation2 = confirm("Are you really sure?");
+        if (confirmation2) {
+          const indexToDelete = lineNumber - 1;
+          payrollList.splice(indexToDelete, 1);
+          updatePayrollTable();
+        }
       }
     }
-  }
-</script>
 
+    function deleteEmployeeByIndex(index) {
+      payrollList.splice(index, 1);
+      updatePayrollTable();
+    }
+
+    function clearAllEmployees() {
+      const confirmation1 = confirm("Are you sure you want to clear all employees?");
+      if (confirmation1) {
+        const confirmation2 = confirm("Are you really sure?");
+        if (confirmation2) {
+          payroll
 
