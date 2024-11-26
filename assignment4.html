@@ -200,7 +200,6 @@
   <script>
     let payrollList = [];
 
-    // Function to add employee to the payroll list
     function addEmployee() {
       const employeeName = document.getElementById("employeeName").value;
       const daysWorked = parseInt(document.getElementById("daysWorked").value);
@@ -212,11 +211,9 @@
         return;
       }
 
-      // Calculate the gross pay and net pay
       const grossPay = daysWorked * dailyRate;
       const netPay = grossPay - deductionAmount;
 
-      // Create an employee object
       const employee = {
         employeeName: employeeName,
         daysWorked: daysWorked,
@@ -226,18 +223,15 @@
         netPay: netPay
       };
 
-      // Add employee to payroll list
       payrollList.push(employee);
       updatePayrollTable();
 
-      // Clear input fields
       document.getElementById("employeeName").value = "";
       document.getElementById("daysWorked").value = "";
       document.getElementById("dailyRate").value = "";
       document.getElementById("deductionAmount").value = "";
     }
 
-    // Function to update the payroll table with the current employee list
     function updatePayrollTable() {
       const tableBody = document.getElementById("payrollTable").getElementsByTagName('tbody')[0];
       tableBody.innerHTML = "";
@@ -275,7 +269,6 @@
       updatePayrollTable();
     }
 
-    // Function to clear all employees
     function clearAllEmployees() {
       const confirmation1 = confirm("Are you sure you want to clear all employees?");
       if (confirmation1) {
